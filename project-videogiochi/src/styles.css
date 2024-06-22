@@ -1,4 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'noisy';
+    src: url('/assets/fonts/NoisyWalk.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.backGroundImage1{
+    background-image: url('../src/assets/kerde-severin-NVD_32BBZFE-unsplash.jpg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+}

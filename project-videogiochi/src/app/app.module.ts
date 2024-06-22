@@ -20,6 +20,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     SharedModule
   ],
+  schemas:[],
   providers: [],
   bootstrap: [AppComponent]
 })
