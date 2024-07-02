@@ -38,10 +38,10 @@ app.get('/products', (req, res) => {
   connection.query('SELECT * FROM products',(err, results) => {
     if (err) {
       console.error('Errore nell\'esecuzione della query:', err);
-      res.status(500).send('Errore nell\'inserimento del prodotto');
+      res.status(500).json({ error: 'Errore nel recupero dei prodotti' });
       return;
     }
-    res.status(201).send('Prodotti recuperati con successo')
+    res.status(201).json(results);
   });
 });
 
@@ -52,10 +52,10 @@ app.post('/products', (req, res) => {
   connection.query(insertQuery,[name,price,category],(error,results) => {
     if (error) {
       console.log('errore nell\'insermiento del prodotto:',error);
-      res.status(500).send()
+      res.status(500).json({ error: 'Errore nell\'inserimento del prodotto' })
     }
   })
-  res.status(201).send('Prodotto aggiunto');
+  res.status(201).json({message:'Prodotto aggiunto'});
 });
 
 // Avvio del server

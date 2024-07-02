@@ -1,0 +1,18 @@
+<div class="container-fluid m-0 p-0 h-100">
+    <div>
+        <app-navbar></app-navbar>
+    </div>
+    <div class="container d-flex justify-content-center align-items-center h-100 flex-column gap-3">
+        <div class="d-flex flex-column gap-3 w-100 align-items-center">
+            <label for="" class="">Nome Prodotto</label>
+            <input [(ngModel)]="productName" type="text" class="w-50 p-2 d-flex justify-content-center">
+            <label for="">Prezzo</label>
+            <input [(ngModel)]="productPrice" type="number" class="w-50 p-2">
+            <label for="">Categoria</label>
+            <input [(ngModel)]="productCategory" type="text" class="w-50 p-2">
+        </div>
+        <div>
+            <button (click)="saveProduct()">Salva</button>
+        </div>
+    </div>
+</div>
