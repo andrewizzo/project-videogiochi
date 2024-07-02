@@ -13,12 +13,15 @@ export class InsertProductComponent {
   productName : string = ''
   productPrice : number = 0
   productCategory : string = ''
+  productImage : string = ''
+  productCondizione : string = '';
 
   saveProduct(){
     const product = {
       name:this.productName,
       price:this.productPrice,
-      category:this.productCategory
+      category:this.productCategory,
+      condizione:this.productCondizione
     }
 
     this.productService.addProduct(product).subscribe(

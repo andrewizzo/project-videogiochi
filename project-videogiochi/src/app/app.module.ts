@@ -10,11 +10,11 @@ import { InsertProductModule } from './insert-product/insert-product.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { ProductsComponent } from './products/products.component';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +23,7 @@ import { ProductsComponent } from './products/products.component';
     SharedModule,
     HomeModule,
     InsertProductModule,
+    ProductsModule,
     HttpClientModule
   ],
   schemas:[],

@@ -1,1 +1,30 @@
-<p>products works!</p>
+<div class="d-flex gap-3 flex-column">
+    <div>
+        <app-navbar></app-navbar>
+    </div>
+    <div>
+        <div class="container ">
+            <div class="border border-2 border-dark rounded p-3 gradient">
+                <input type="text">
+                <select name="" id="">Seleziona Categoria</select>
+                <select name="" id=""></select>
+            </div>
+        </div>
+    </div>
+    <div class="container" >
+        <div class="row">
+            <div *ngFor="let product of products" class="col-lg-4 col-md-6 mb-4">
+                <div class="border border-2 border-dark rounded p-3 d-flex flex-column gap-2 align-items-center">
+                    <img [src]="product.image" class="">
+                    <!-- <img src="../../assets/imageCard/xboxOneS.png" alt=""> -->
+                    <span style="font-family: 'noisy';font-size: 250%;" class="text-dark animated-underline h-100 d-flex align-items-center">{{product.name}}</span>
+                    <span style="font-family: 'noisy';font-size: 200%;" class="text-danger animated-underline h-100 d-flex align-items-center">{{'€' + product.price}}</span>
+                    <span style="font-family: 'noisy';font-size: 150%;" class="text-dark animated-underline h-100 d-flex align-items-center">{{product.condizione}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <app-footer></app-footer>
+    </div>
+</div>

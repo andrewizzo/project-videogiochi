@@ -11,7 +11,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid p-0 ">
+<div class="container-fluid p-0 " id="prodotti">
     <div class="container d-flex justify-content-center flex-column align-items-center p-5 gap-4">
         <div class="rounded d-flex flex-column customHover w-75">
             <button class="border-0 bg-transparent d-flex gap-5 p-5 flex-column justify-content-center align-items-center">
@@ -53,8 +53,8 @@
                 </div>
             </button>
         </div>
-        <div class="rounded p-5 d-flex flex-column w-75 customHover">
-            <button class="border-0 bg-transparent d-flex gap-4 flex-column justify-content-center align-items-center">
+        <div class="rounded p-5 d-flex flex-column w-75 customHover" (click)="goToAllProducts()">
+            <button class="border-0 bg-transparent d-flex gap-4 flex-column justify-content-center align-items-center" >
                 <img src="../../../assets/searchLogo.png" alt="">
                 <div class="d-flex justify-content-center align-items-center flex-column gap-2"> 
                     <span style="font-family: 'noisy';font-size: 250%;" class="text-dark animated-underline h-100 d-flex align-items-center">

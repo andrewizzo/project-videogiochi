@@ -47,9 +47,9 @@ app.get('/products', (req, res) => {
 
 // Endpoint per aggiungere un prodotto
 app.post('/products', (req, res) => {
-  const { name, price,category } = req.body;
+  const { name, price,category,condizione } = req.body;
   const insertQuery = 'INSERT INTO products (name,price,category) VALUES (?,?,?)';
-  connection.query(insertQuery,[name,price,category],(error,results) => {
+  connection.query(insertQuery,[name,price,category,condizione],(error,results) => {
     if (error) {
       console.log('errore nell\'insermiento del prodotto:',error);
       res.status(500).json({ error: 'Errore nell\'inserimento del prodotto' })
