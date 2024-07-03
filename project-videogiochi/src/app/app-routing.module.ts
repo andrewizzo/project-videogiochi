@@ -14,6 +14,22 @@ const routes: Routes = [
   {
     path:'products',
     loadChildren:() => import('./products/products.module').then(p => p.ProductsModule)
+  },
+  {
+    path:'accessori',
+    loadChildren:() => import('./accessori-page/accessori-page.module').then(a => a.AccessoriPageModule)
+  },
+  {
+    path:'playstationPage',
+    loadChildren:() => import('./playstation-page/playstation-page.module').then(pl => pl.PlaystationPageModule)
+  },
+  {
+    path:'xboxPage',
+    loadChildren:() => import('./xbox-page/xbox-page.module').then(x => x.XboxPageModule)
+  },
+  {
+    path:'NintendoPage',
+    loadChildren:() => import('./nintendo-page/nintendo-page.module').then(n => n.NintendoPageModule)
   }
 ];
 

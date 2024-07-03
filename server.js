@@ -10,13 +10,6 @@ const PORT = 3000;
 // Middleware per analizzare il corpo delle richieste
 app.use(bodyParser.json());
 
-// Array per archiviare i dati dei prodotti (simulazione di database in memoria)
-// let products = [
-//   { id: 1, name: 'Prodotto 1', price: 10.99 },
-//   { id: 2, name: 'Prodotto 2', price: 19.99 },
-// ];
-
-
 const connection = mysql.createConnection({
   host:'localhost',
   user:'root',

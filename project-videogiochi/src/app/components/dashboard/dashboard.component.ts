@@ -9,7 +9,25 @@ import { Router } from '@angular/router';
 export class DashboardComponent {
   constructor(private router : Router){}
 
+  goToPlaystationPage(){
+    this.router.navigate(['playstationPage'])
+  }
+
+  goToXboxPage(){
+    this.router.navigate(['xboxPage'])
+  }
+
+  goToNintendoPage(){
+    this.router.navigate(['NintendoPage'])
+  }
+
+  goToAccessoriPage(){
+    this.router.navigate(['accessori'])
+  }
+
   goToAllProducts(){
     this.router.navigate(['products'])
   }
+
+
 }
