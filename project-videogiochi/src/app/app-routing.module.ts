@@ -4,6 +4,14 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
+    path:'login',
+    loadChildren:() => import('./login-page/login-page.module').then(l => l.LoginPageModule)
+  },
+  {
+    path:'register',
+    loadChildren:() => import('./register-page/register-page.module').then(r => r.RegisterPageModule)
+  },
+  {
     path:'home',
     loadChildren:() => import('./home/home.module').then(h => h.HomeModule)
   },
@@ -30,6 +38,22 @@ const routes: Routes = [
   {
     path:'NintendoPage',
     loadChildren:() => import('./nintendo-page/nintendo-page.module').then(n => n.NintendoPageModule)
+  },
+  {
+    path:'detailProduct',
+    loadChildren:() => import('./detail-product/detail-product.module').then(d => d.DetailProductModule)
+  },
+  {
+    path:'cartShop',
+    loadChildren:() => import('./cart-shop/cart-shop.module').then(c => c.CartShopModule)
+  },
+  {
+    path:'maps',
+    loadChildren:() => import('./maps/maps.module').then(m => m.MapsModule)
+  },
+  {
+    path:'my-profile',
+    loadChildren:() => import('./my-profile/my-profile.module').then(my => my.MyProfileModule)
   }
 ];
 

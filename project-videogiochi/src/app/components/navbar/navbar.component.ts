@@ -31,7 +31,20 @@ export class NavbarComponent implements OnInit{
     this.router.navigate(['products'])
   }
 
+  goToCartShop(){
+    this.router.navigate(['cartShop'])
+  }
+
+  goToMaps(){
+    this.router.navigate(['maps'])
+  }
+
+  goToMyProfile(){
+    this.router.navigate(['my-profile'])
+  }
+
   scrollToSection(section:string){
+    this.router.navigate(['home']);
     this.scrollService.scrollTo(section)
   }
 }

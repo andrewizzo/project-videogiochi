@@ -1,20 +1,31 @@
-<div class="container-fluid m-0 p-0 h-100">
+<div class="container-fluid m-0 p-0 h-100 gap-3 d-flex flex-column">
     <div>
         <app-navbar></app-navbar>
     </div>
-    <div class="container d-flex justify-content-center align-items-center h-100 flex-column gap-3">
-        <div class="d-flex flex-column gap-3 w-100 align-items-center">
-            <label for="" class="">Nome Prodotto</label>
-            <input [(ngModel)]="productName" type="text" class="w-50 p-2 d-flex justify-content-center">
-            <label for="">Prezzo</label>
-            <input [(ngModel)]="productPrice" type="number" class="w-50 p-2">
-            <label for="">Categoria</label>
-            <input [(ngModel)]="productCategory" type="text" class="w-50 p-2">
-            <label for="">Condizione</label>
-            <input [(ngModel)]="productCondizione" type="text" class="w-50 p-2">
-        </div>
-        <div>
-            <button (click)="saveProduct()">Salva</button>
+    <div class="container d-flex justify-content-center align-items-center flex-column p-3 ">
+        <div class="d-flex flex-column gap-5 w-100 align-items-center border border-2 border-dark py-4 rounded bgCustom">
+            <label class="text-decoration-underline fs-3">Nome Prodotto</label>
+            <input [(ngModel)]="productName" type="text" class="w-75 p-3 rounded d-flex justify-content-center fs-3">
+            <label class="text-decoration-underline fs-3">Prezzo</label>
+            <input [(ngModel)]="productPrice" type="number" class="w-75 p-3 rounded d-flex justify-content-center fs-3" >
+            <label class="text-decoration-underline fs-3">Categoria</label>
+            <!-- <input [(ngModel)]="productCategory" type="text" class="w-75 p-3 rounded d-flex justify-content-center fs-3"> -->
+             <select name="category" id="category" class="w-75 p-3 rounded d-flex justify-content-center fs-3 " [(ngModel)]="productCategory">
+                <option value="default">Seleziona Categoria</option>
+                <option value="Playstation">Playstation</option>
+                <option value="Xbox">Xbox</option>
+                <option value="Nintendo">Nintendo</option>
+             </select>
+            <label class="text-decoration-underline fs-3">Condizione</label>
+            <!-- <input [(ngModel)]="productCondizione" type="text" class="w-75 p-3 rounded d-flex justify-content-center fs-3"> -->
+             <select name="condizione" id="condizione" class="w-75 p-3 rounded d-flex justify-content-center fs-3" [(ngModel)]="productCondizione">
+                <option value="default">Seleziona Condizione</option>
+                <option value="Nuovo">Nuovo</option>
+                <option value="Usato">Usato</option>
+             </select>
+            <div>
+                <button (click)="saveProduct()" class="rounded bg-danger text-white p-3 fs-3" >Inserisci Prodotto</button>
+            </div>
         </div>
     </div>
 </div>

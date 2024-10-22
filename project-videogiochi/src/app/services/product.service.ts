@@ -10,7 +10,7 @@ export class ProductService{
 
     constructor(private http : HttpClient){}
 
-    addProduct(product:{name:string;price:number;category:string}):Observable<any>{
+    addProduct(product:{name:string;price:number;category:string;condizione:string}):Observable<any>{
         return this.http.post(this.apiUrl,product)
     }
 
@@ -19,6 +19,10 @@ export class ProductService{
     }
 
     getPlaystationProducts():Observable<any>{
-        return this.http.get(this.apiUrl)
+        return this.http.get(`${this.apiUrl}/playstation`)
+    }
+    
+    getXboxProducts():Observable<any>{
+        return this.http.get(`${this.apiUrl}/xbox`)
     }
 }

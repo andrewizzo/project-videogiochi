@@ -9,12 +9,11 @@ import { HomeModule } from './home/home.module';
 import { InsertProductModule } from './insert-product/insert-product.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product.service';
-import { ProductsComponent } from './products/products.component';
 import { ProductsModule } from './products/products.module';
-import { PlaystationPageComponent } from './playstation-page/playstation-page.component';
-import { XboxPageComponent } from './xbox-page/xbox-page.component';
-import { NintendoPageComponent } from './nintendo-page/nintendo-page.component';
-import { AccessoriPageComponent } from './accessori-page/accessori-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
+import { MapsComponent } from './maps/maps.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 
 @NgModule({
   declarations: [

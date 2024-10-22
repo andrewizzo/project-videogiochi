@@ -6,35 +6,57 @@
             </div> -->
             <div class="d-flex align-items-center">
                 <button class="bg-transparent border-0" (click)="goToHome()">
-                    <span style="font-family: 'noisy';font-size: 350%;" class="text-white animated-underline d-flex align-items-center customHeight">V & I</span>
+                    <span style="font-family: 'noisy';font-size: 350%;"
+                        class="text-white animated-underline d-flex align-items-center customHeight">V & I</span>
                 </button>
             </div>
         </div>
         <div class="d-none d-lg-flex align-items-center p-2 gap-4">
             <div class="d-flex align-items-center">
-                <button class="bg-transparent border-0" (click)="goToInsertProduct()"><span style="font-family: 'noisy';font-size: 350%;" class="text-white animated-underline customHeight d-flex align-items-center">Inserisci Prodotto</span></button>
+                <button class="bg-transparent border-0" (click)="goToInsertProduct()"><span
+                        style="font-family: 'noisy';font-size: 350%;"
+                        class="text-white animated-underline customHeight d-flex align-items-center">Inserisci</span></button>
             </div>
             <div class="d-flex align-items-center">
-                <button class="bg-transparent border-0" (click)="scrollToSection('prodotti')"><span style="font-family: 'noisy';font-size: 350%;" class="text-white animated-underline customHeight d-flex align-items-center">Prodotti</span></button>
+                <button class="bg-transparent border-0" (click)="scrollToSection('prodotti')"><span
+                        style="font-family: 'noisy';font-size: 350%;"
+                        class="text-white animated-underline customHeight d-flex align-items-center">Prodotti</span></button>
             </div>
             <div>
                 <div class="d-flex align-items-center">
-                    <button class="bg-transparent border-0"><span style="font-family: 'noisy';font-size: 350%;" class="text-white animated-underline customHeight d-flex align-items-center">Dove Siamo</span></button>
+                    <button class="bg-transparent border-0"><span style="font-family: 'noisy';font-size: 350%;"
+                            class="text-white animated-underline customHeight d-flex align-items-center"
+                            (click)="goToMaps()">Dove
+                            Siamo</span></button>
                 </div>
+            </div>
+            <div>
+                <button class="bg-transparent border-0" (click)="goToCartShop()">
+                    <img src="../../../assets/shopping-cart.png" alt="" class="w-75">
+                </button>
+            </div>
+            <div>
+                <button class="bg-transparent border-0" (click)="goToMyProfile()">
+                    <img src="../../../assets/user.png" alt="" class="w-75">
+                </button>
             </div>
         </div>
         <div class="d-flex d-xl-none justify-content-end">
             <div class=" d-flex justify-content-center align-items-center">
-                <button class="bg-transparent border-0" (click)="openDiv()"><img src="../../../assets/hamburger.png" class="customHamburgerMenu w-75 h-75"></button>
+                <button class="bg-transparent border-0" (click)="openDiv()"><img src="../../../assets/hamburger.png"
+                        class="customHamburgerMenu w-75 h-75"></button>
             </div>
         </div>
     </div>
     <div class="bg-black d-flex flex-column" *ngIf="isOpenDiv">
         <div class="d-flex justify-content-center align-items-center p-2 customBorder ">
-            <a href="/products" style="font-family: 'noisy';font-size: 250%;" class="text-decoration-none customHeight text-white animated-underline d-flex align-items-center">Prodotti</a>
+            <button (click)="scrollToSection('prodotti')" style="font-family: 'noisy';font-size: 250%;"
+                class="border-0 bg-transparent text-decoration-none customHeight text-white animated-underline d-flex align-items-center">Prodotti</button>
         </div>
         <div class="d-flex justify-content-center align-items-center p-2 customBorder">
-            <a href="" style="font-family: 'noisy';font-size: 250%;" class="text-decoration-none text-white customHeight d-flex align-items-center animated-underline">Dove Siamo</a>
+            <a href="" style="font-family: 'noisy';font-size: 250%;"
+                class="text-decoration-none text-white customHeight d-flex align-items-center animated-underline">Dove
+                Siamo</a>
         </div>
     </div>
 </div>
