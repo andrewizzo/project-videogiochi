@@ -11,7 +11,7 @@
                 </button>
             </div>
         </div>
-        <div class="d-none d-lg-flex align-items-center p-2 gap-4">
+        <div class="d-none d-xxl-flex align-items-center p-2 gap-4">
             <div class="d-flex align-items-center">
                 <button class="bg-transparent border-0" (click)="goToInsertProduct()"><span
                         style="font-family: 'noisy';font-size: 350%;"
@@ -22,14 +22,14 @@
                         style="font-family: 'noisy';font-size: 350%;"
                         class="text-white animated-underline customHeight d-flex align-items-center">Prodotti</span></button>
             </div>
-            <div>
+            <!-- <div>
                 <div class="d-flex align-items-center">
                     <button class="bg-transparent border-0"><span style="font-family: 'noisy';font-size: 350%;"
                             class="text-white animated-underline customHeight d-flex align-items-center"
                             (click)="goToMaps()">Dove
                             Siamo</span></button>
                 </div>
-            </div>
+            </div> -->
             <div>
                 <button class="bg-transparent border-0" (click)="goToCartShop()">
                     <img src="../../../assets/shopping-cart.png" alt="" class="w-75">
@@ -41,7 +41,7 @@
                 </button>
             </div>
         </div>
-        <div class="d-flex d-xl-none justify-content-end">
+        <div class="d-flex d-xxl-none justify-content-end">
             <div class=" d-flex justify-content-center align-items-center">
                 <button class="bg-transparent border-0" (click)="openDiv()"><img src="../../../assets/hamburger.png"
                         class="customHamburgerMenu w-75 h-75"></button>
@@ -49,6 +49,12 @@
         </div>
     </div>
     <div class="bg-black d-flex flex-column" *ngIf="isOpenDiv">
+        <div class="d-flex justify-content-center align-items-center p-2 customBorder">
+            <a href="/cartShop" style="font-family: 'noisy';font-size: 250%;"
+                class="text-decoration-none text-white customHeight d-flex align-items-center animated-underline">
+                Carrello
+            </a>
+        </div>
         <div class="d-flex justify-content-center align-items-center p-2 customBorder ">
             <button (click)="scrollToSection('prodotti')" style="font-family: 'noisy';font-size: 250%;"
                 class="border-0 bg-transparent text-decoration-none customHeight text-white animated-underline d-flex align-items-center">Prodotti</button>
@@ -57,6 +63,26 @@
             <a href="" style="font-family: 'noisy';font-size: 250%;"
                 class="text-decoration-none text-white customHeight d-flex align-items-center animated-underline">Dove
                 Siamo</a>
+        </div>
+        <div class="d-flex justify-content-center align-items-center p-2 customBorder">
+            <a href="/my-profile" style="font-family: 'noisy';font-size: 250%;"
+                class="text-decoration-none text-white customHeight d-flex align-items-center animated-underline">
+                Profilo
+            </a>
+        </div>
+        <div class="d-flex justify-content-center align-items-center p-2 customBorder">
+            <a href="/settings" style="font-family: 'noisy';font-size: 250%;"
+                class="text-decoration-none text-white customHeight d-flex align-items-center animated-underline">
+                Impostazioni
+            </a>
+        </div>
+        <div class="d-flex justify-content-center align-items-center p-2 customBorder">
+            <button class="bg-transparent border-0">
+                <span class="animated-underline text-danger customHeight d-flex align-items-center"
+                    style="font-family: 'noisy';font-size: 250%;">
+                    Esci
+                </span>
+            </button>
         </div>
     </div>
 </div>

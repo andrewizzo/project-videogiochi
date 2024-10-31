@@ -1,10 +1,54 @@
-<div class="bg-black vh-100 d-flex justify-content-center align-items-center">
-    <div class="d-flex flex-column justify-content-center align-items-center">
-        <div>
-            <span class="text-white">V & I</span>
+<div class="bg-image vh-100 d-flex align-items-center justify-content-center flex-column text-center gap-4">
+
+    <div class="d-flex flex-column">
+        <span class="text-white">V & I</span>
+    </div>
+
+    <div
+        class="bg-custom border border-white rounded customSize p-3 d-flex flex-column align-items-center justify-content-around gap-3">
+        <div class="w-100">
+            <label for="name" class="text-white w-100 font-custom">Nome*</label>
+            <input type="text" id="name" class="form-control font-custom" placeholder="Inserisci Nome*">
         </div>
-        <div class="border border-white rounded ">
-            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        <div class="w-100">
+            <label for="surname" class="text-white w-100 font-custom">Cognome*</label>
+            <input type="text" id="surname" class="form-control font-custom" placeholder="Inserisci Cognome*">
         </div>
+        <div class="w-100">
+            <label for="date" class="text-white w-100 font-custom">Data di nascita*</label>
+            <input type="date" id="date" class="form-control font-custom">
+        </div>
+        <div class="w-100">
+            <label for="email" class="text-white w-100 font-custom">Email*</label>
+            <input type="email" id="email" class="form-control font-custom" placeholder="Inserisci Email*">
+        </div>
+        <div class="w-100">
+            <label for="password" class="text-white font-custom">Password</label>
+            <div class="d-flex flex-row">
+                <input type="password" id="password" class="form-control font-custom" placeholder="Inserisci Password*">
+                <button class="bg-transparent border-0">
+                    <img src="../../assets/hide.png" alt="">
+                </button>
+            </div>
+            
+        </div>
+        <button class="btn btn-success w-100">
+            <span class="font-custom">Accedi</span>
+        </button>
+
+        <hr class="linea-bianca">
+
+        <div class="w-100">
+            <button class="border-0 rounded w-100 p-1">
+                <img src="../../assets/Google__G__logo.svg.webp" alt="Logo di Google">
+            </button>
+        </div>
+    </div>
+
+    <div
+        class="bg-custom d-flex justify-content-center align-items-center border border-white rounded customSize p-3">
+        <a href="/login" class="text-white">
+            <span class="font-custom">Sei già registrato? Accedi.</span>
+        </a>
     </div>
 </div>

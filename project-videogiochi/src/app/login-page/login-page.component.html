@@ -1,11 +1,32 @@
-<div class="bg-black vh-100 d-flex align-items-center justify-content-center">
+<div class="bg-image vh-100 d-flex align-items-center justify-content-center flex-column text-center gap-4">
 
-    <div class="d-flex flex-column d-flex justify-content-center align-items-center">
-        <div>
-            <span class="text-white">V & I</span>
+    <div class="d-flex flex-column">
+        <span class="text-white">V & I</span>
+    </div>
+
+    <div class="bg-custom border border-white rounded customSize p-3 d-flex flex-column align-items-center justify-content-around gap-4">
+        <div class="w-100">
+            <label for="email" class="text-white w-100 font-custom">Email*</label>
+            <input type="email" id="email" class="form-control font-custom" placeholder="Inserisci Email*">
         </div>
-        <div class="border border-white rounded">
-            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        <div class="w-100">
+            <label for="password" class="text-white font-custom">Password</label>
+            <input type="password" id="password" class="form-control font-custom" placeholder="Inserisci Password*">
         </div>
+        <button class="btn btn-success w-100">
+            <span class="font-custom">Accedi</span>
+        </button>
+        <hr class="linea-bianca">
+        <div class="w-100">
+            <button class="border-0 rounded w-100 p-1">
+                <img src="../../assets/Google__G__logo.svg.webp" alt="Logo di Google">
+            </button>
+        </div>
+    </div>
+
+    <div class="bg-custom d-flex justify-content-center align-items-center border border-white rounded customSize p-2">
+        <a href="/register" class="text-white">
+            <span class="font-custom">Non sei registrato? Registrati.</span>
+        </a>
     </div>
 </div>

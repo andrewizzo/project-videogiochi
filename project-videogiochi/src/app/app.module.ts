@@ -14,6 +14,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { MapsComponent } from './maps/maps.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import { SettingsComponent } from './settings/settings.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 @NgModule({
   declarations: [
