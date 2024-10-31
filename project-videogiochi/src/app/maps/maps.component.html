@@ -1,8 +1,23 @@
-<div>
+<div class="container-fluid p-0 m-0 d-flex flex-column gap-4">
     <div>
         <app-navbar></app-navbar>
     </div>
+
     <div class="container">
-        mappe funziona
+        <a href="/home" class="fs-4 text-black">
+            <img src="../../assets/left-arrow-black.png" alt="left-arrow-black">
+            <span class="font-custom">Indietro</span>
+        </a>
+    </div>
+    
+    <div class="container d-flex flex-column gap-3 bg-black rounded p-3">
+       
+        <div class="container w-100 border-bottom" id="map" style="height: 500px;">
+            
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center p-2 fs-4">
+            <span class="font-custom text-white">Via Silvio Spaventa 30,80142,Napoli</span>
+        </div>
     </div>
 </div>

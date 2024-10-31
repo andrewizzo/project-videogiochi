@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,12 +9,8 @@ import { InsertProductModule } from './insert-product/insert-product.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { ProductsModule } from './products/products.module';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { RegisterPageComponent } from './register-page/register-page.component';
-import { MapsComponent } from './maps/maps.component';
-import { MyProfileComponent } from './my-profile/my-profile.component';
-import { SettingsComponent } from './settings/settings.component';
-import { TicketComponent } from './ticket/ticket.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +24,8 @@ import { TicketComponent } from './ticket/ticket.component';
     HomeModule,
     InsertProductModule,
     ProductsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   schemas:[],
   providers: [ProductService],

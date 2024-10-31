@@ -62,6 +62,14 @@ const routes: Routes = [
   {
     path:'ticket',
     loadChildren:() => import('./ticket/ticket.module').then(t => t.TicketModule)
+  },
+  {
+    path:'users',
+    loadChildren:() => import('./users/users.module').then(u => u.UsersModule)
+  },
+  {
+    path:'single-user',
+    loadChildren:() => import('./single-user/single-user.module').then(si => si.SingleUserModule)
   }
 ];
 

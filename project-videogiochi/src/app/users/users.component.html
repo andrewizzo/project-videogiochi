@@ -1,0 +1,51 @@
+<div class="container-fluid p-0 m-0 d-flex flex-column gap-5">
+    <div>
+        <app-navbar></app-navbar>
+    </div>
+
+    <div class="container w-75">
+        <a href="/home" class="fs-4 text-black">
+            <img src="../../assets/left-arrow-black.png" alt="left-arrow-black">
+            <span class="font-custom">Indietro</span>
+        </a>
+    </div>
+
+    <div class="container w-75 d-flex flex-column gap-4">
+        <div class="fs-1 text-center">
+            <span class="font-custom">Utenti</span>
+        </div>
+
+        <div class="bg-black rounded w-100">
+            <div class="d-flex flex-row w-100 justify-content-between p-3 border-bottom fs-4">
+                <input type="text" class="w-25 font-custom" placeholder="Cerca Utente" [(ngModel)]="search" (input)="applyFilter()">
+            </div>
+
+            <div class="p-3">
+                <div *ngFor="let user of utentiPaginati">
+                    <div
+                        class="d-flex flex-row gap-3 fs-5 align-items-center justify-content-between border-bottom p-2">
+                        <a href="" class="text-white font-custom">{{user.nome}} {{user.cognome}}</a>
+                        <div>
+                            <button class="bg-transparent border-0">
+                                <img src="../../assets/eye.png" alt="">
+                            </button>
+                            <button class="bg-transparent border-0">
+                                <img src="../../assets/delete.png" alt="">
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="p-3 d-flex flex-row justify-content-between align-items-center fs-3">
+                <button (click)="paginaPrecedente()" [disabled]="pagina === 1" class="btn btn-secondary">
+                    <img src="../../assets/left-arrow.png" alt="">
+                </button>
+                <span class="text-white font-custom">{{ pagina + "/" }}{{totalePagine}}</span>
+                <button (click)="paginaSuccessiva()" [disabled]="pagina === Math.ceil(utenti.length / utentiPerPagina)" class="btn btn-secondary">
+                    <img src="../../assets/right-arrow-simple.png" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
