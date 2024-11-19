@@ -3,9 +3,10 @@ import { RegisterPageComponent } from "./register-page.component";
 import { CommonModule } from "@angular/common";
 import { SharedModule } from "../shared/shared.module";
 import { RegisterPageRoutingModule } from "./register-page-routing.module";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
     declarations:[RegisterPageComponent],
-    imports:[CommonModule,RegisterPageRoutingModule,SharedModule]
+    imports:[CommonModule,RegisterPageRoutingModule,SharedModule,FormsModule]
 })
 export class RegisterPageModule{}

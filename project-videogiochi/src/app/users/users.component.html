@@ -24,12 +24,12 @@
                 <div *ngFor="let user of utentiPaginati">
                     <div
                         class="d-flex flex-row gap-3 fs-5 align-items-center justify-content-between border-bottom p-2">
-                        <a href="" class="text-white font-custom">{{user.nome}} {{user.cognome}}</a>
+                        <a href="" class="text-white font-custom">{{user.name}} {{user.surname}}</a>
                         <div>
                             <button class="bg-transparent border-0">
                                 <img src="../../assets/eye.png" alt="">
                             </button>
-                            <button class="bg-transparent border-0">
+                            <button class="bg-transparent border-0" (click)="deleteUser(user.id)">
                                 <img src="../../assets/delete.png" alt="">
                             </button>
                         </div>
@@ -42,7 +42,7 @@
                     <img src="../../assets/left-arrow.png" alt="">
                 </button>
                 <span class="text-white font-custom">{{ pagina + "/" }}{{totalePagine}}</span>
-                <button (click)="paginaSuccessiva()" [disabled]="pagina === Math.ceil(utenti.length / utentiPerPagina)" class="btn btn-secondary">
+                <button (click)="paginaSuccessiva()" [disabled]="pagina === Math.ceil(users.length / utentiPerPagina)" class="btn btn-secondary">
                     <img src="../../assets/right-arrow-simple.png" alt="">
                 </button>
             </div>
