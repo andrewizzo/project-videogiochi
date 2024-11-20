@@ -104,20 +104,20 @@ app.get('/users', (req, res) => {
 
 //Endpoint per la registrazione
 app.post('/register',async(req,res) => {
-  const {name,surname,email,password} = req.body
+  const {name,surname,email,password,roles} = req.body
 
-  if(!name || !surname || !email || !password){
+  if(!name || !surname || !email || !password || !roles){
     return res.status(400).json({error:'tutti i campi sono obbligatori'})
   }
 
   try{
     const hashedPassword = await bcrypt.hash(password,10)
 
-    const insertUserQuery = `INSERT INTO users (name, surname, email, password) VALUES (?, ?, ? ,?)`;
+    const insertUserQuery = `INSERT INTO users (name, surname, email, password, roles) VALUES (?, ?, ? ,?, ?)`;
 
     connection.query(
       insertUserQuery,
-      [name, surname, email, hashedPassword],
+      [name, surname, email, roles, hashedPassword],
       (error, results) => {
         if (error) {
           console.error('Errore durante l\'inserimento nel database:', error);

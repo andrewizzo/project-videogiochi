@@ -3,5 +3,6 @@ export class Users{
     name!:string;
     surname!:string;
     email!:string;
-    password!:string;
+    password?:string;
+    ruolo?:string;
 }

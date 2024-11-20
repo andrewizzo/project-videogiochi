@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Users } from '../model/users.model';
 import { UsersService } from '../services/users.service';
+import { SharedModule } from '../shared/shared.module';
+import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
+import { MatDialog } from '@angular/material/dialog'; 
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-users',
@@ -9,7 +14,7 @@ import { UsersService } from '../services/users.service';
 })
 export class UsersComponent implements OnInit{
 
-  constructor(private usersService : UsersService){}
+  constructor(private usersService : UsersService,private dialog : MatDialog,private router : Router){}
 
   public pagina : number = 1
   public utentiPerPagina: number = 10;
@@ -55,6 +60,20 @@ export class UsersComponent implements OnInit{
         console.error('Errore durante l\'eliminazione dell\'utente:', error);
       }
     })
+  }
+
+  openDialog(userId: number):void{
+    const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
+      width: '400px', // Larghezza del dialog
+      data: { id: userId } // Passa l'id dell'utente come dato al dialog
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        // Esegui l'eliminazione se l'utente conferma
+        this.deleteUser(userId);
+      }
+    });
   }
 
 
@@ -104,6 +123,10 @@ export class UsersComponent implements OnInit{
   //   console.log(this.utenti[0].nome);
     
   // }
+
+  goToSingleUser(){
+    this.router.navigate(['single-user'])
+  }
 }
 
 

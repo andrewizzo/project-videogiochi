@@ -26,6 +26,14 @@ export class RegisterPageComponent {
       res => {console.log('Prodotto Inserito',res);},
       error => {console.error('errore nel salvataggio',error);}
     )
+    this.resetForm();
+  }
+
+  resetForm(){
+    this.userName = "";
+    this.userSurname = "";
+    this.userEmail = "";
+    this.userPassword = ""
   }
 
 }

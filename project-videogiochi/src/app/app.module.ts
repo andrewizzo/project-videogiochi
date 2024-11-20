@@ -10,11 +10,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { ProductsModule } from './products/products.module';
 import { FormsModule } from '@angular/forms';
+import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-delete-dialog.component';
+import { ConfirmAddDialogComponent } from './confirm-add-dialog/confirm-add-dialog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ConfirmAddDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,10 +28,10 @@ import { FormsModule } from '@angular/forms';
     InsertProductModule,
     ProductsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   schemas:[],
   providers: [ProductService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

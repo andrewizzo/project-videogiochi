@@ -16,20 +16,27 @@
         </div>
 
         <div class="bg-black rounded w-100">
-            <div class="d-flex flex-row w-100 justify-content-between p-3 border-bottom fs-4">
-                <input type="text" class="w-25 font-custom" placeholder="Cerca Utente" [(ngModel)]="search" (input)="applyFilter()">
+            <div class="d-flex flex-row">
+                <div class="d-flex flex-row w-100 justify-content-start p-3 border-bottom fs-4">
+                    <input type="text" class="w-75 font-custom" placeholder="Cerca Utente" [(ngModel)]="search" (input)="applyFilter()">
+                </div>
+                <div class="d-flex flex-row w-100 justify-content-end p-3 border-bottom fs-4">
+                    <button class="btn btn-secondary" (click)="goToSingleUser()">
+                        <span class="font-custom">Aggiungi Utente</span>
+                    </button>
+                </div>
             </div>
 
             <div class="p-3">
                 <div *ngFor="let user of utentiPaginati">
                     <div
                         class="d-flex flex-row gap-3 fs-5 align-items-center justify-content-between border-bottom p-2">
-                        <a href="" class="text-white font-custom">{{user.name}} {{user.surname}}</a>
+                        <a href="/single-user" class="text-white font-custom">{{user.name}} {{user.surname}}</a>
                         <div>
-                            <button class="bg-transparent border-0">
+                            <button class="bg-transparent border-0" (click)="goToSingleUser()">
                                 <img src="../../assets/eye.png" alt="">
                             </button>
-                            <button class="bg-transparent border-0" (click)="deleteUser(user.id)">
+                            <button class="bg-transparent border-0" (click)="openDialog(user.id)">
                                 <img src="../../assets/delete.png" alt="">
                             </button>
                         </div>
