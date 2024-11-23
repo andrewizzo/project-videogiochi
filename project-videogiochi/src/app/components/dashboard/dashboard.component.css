@@ -6,3 +6,8 @@
 .customHover:hover{
     border: 2px solid red;
 }
+
+.dashboard{
+    position: relative;
+    z-index: 1;
+}

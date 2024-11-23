@@ -124,7 +124,8 @@ export class UsersComponent implements OnInit{
     
   // }
 
-  goToSingleUser(){
+  goToSingleUser(idNumber:number){
+    this.usersService.userId = idNumber
     this.router.navigate(['single-user'])
   }
 }

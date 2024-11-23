@@ -1,4 +1,4 @@
-<div>
+<div class="container-fluid p-0 m-0 d-flex flex-column gap-5">
     <div>
         <app-navbar></app-navbar>
     </div>
@@ -10,7 +10,49 @@
         </a>
     </div>
 
-    <div class="container">
-        my profile works
+    <div class="container w-75 d-flex flex-column gap-4">
+        <div class="fs-1 text-center">
+            <span class="font-custom">Profilo</span>
+        </div>
+        <div class="bg-black rounded w-100 container p-3">
+            <div class="d-flex flex-row justify-content-center align-items-center gap-3 p-3 container">
+                <div class="d-flex flex-column w-50">
+                    <label for="name" class="w-100 font-custom text-white fs-5">Nome</label>
+                    <input type="text" placeholder="Cambia Nome*" class="font-custom" [(ngModel)]="userName" [disabled]="!isDisabled">
+                </div>
+                <div class="d-flex flex-column w-50">
+                    <label for="surname" class="w-100 font-custom text-white fs-5">Cognome</label>
+                    <input type="text" placeholder="Cambia Cognome*" class="font-custom" [(ngModel)]="userSurname" [disabled]="!isDisabled" [value]="userSurname">
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-center align-items-center gap-3 p-3">
+                <div class="d-flex flex-column w-50">
+                    <label for="email" class="w-100 font-custom text-white fs-5">Email</label>
+                    <input type="text" placeholder="Cambia Email*" class="font-custom" [(ngModel)]="userEmail" [disabled]="!isDisabled" [value]="userEmail">
+                </div>
+                <div class="d-flex flex-column w-50">
+                    <label for="roles" class="w-100 font-custom text-white fs-5">Ruolo</label>
+                    <input type="text" placeholder="Cambia Ruolo*" class="font-custom" [(ngModel)]="userRuolo" [disabled]="true" [value]="userRuolo">
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-center align-items-center gap-3 p-3">
+                <div class="d-flex flex-column w-50">
+                    <label for="password" class="w-100 font-custom text-white fs-5">Password</label>
+                    <input type="password" placeholder="Cambia Password*" class="font-custom text-black" [(ngModel)]="userPassword" [disabled]="!isDisabled">
+                </div>
+                <div class="d-flex flex-column w-50">
+                    <label for="name" class="w-100 font-custom text-white fs-6">Data di Nascita</label>
+                    <input type="date" class="font-custom text-black" [disabled]="!isDisabled">
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-between w-100 p-3">
+                <button class="btn btn-secondary" (click)="modifyUser()">
+                    <span class="font-custom">Modifica</span>
+                </button>
+                <button class="btn btn-success" (click)="openDialog()" [disabled]="!isDisabled">
+                    <span class="font-custom">Conferma</span>
+                </button>
+            </div>
+        </div>
     </div>
 </div>

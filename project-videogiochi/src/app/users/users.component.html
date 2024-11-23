@@ -4,7 +4,7 @@
     </div>
 
     <div class="container w-75">
-        <a href="/home" class="fs-4 text-black">
+        <a href="/settings" class="fs-4 text-black">
             <img src="../../assets/left-arrow-black.png" alt="left-arrow-black">
             <span class="font-custom">Indietro</span>
         </a>
@@ -21,7 +21,7 @@
                     <input type="text" class="w-75 font-custom" placeholder="Cerca Utente" [(ngModel)]="search" (input)="applyFilter()">
                 </div>
                 <div class="d-flex flex-row w-100 justify-content-end p-3 border-bottom fs-4">
-                    <button class="btn btn-secondary" (click)="goToSingleUser()">
+                    <button class="btn btn-secondary">
                         <span class="font-custom">Aggiungi Utente</span>
                     </button>
                 </div>
@@ -31,9 +31,9 @@
                 <div *ngFor="let user of utentiPaginati">
                     <div
                         class="d-flex flex-row gap-3 fs-5 align-items-center justify-content-between border-bottom p-2">
-                        <a href="/single-user" class="text-white font-custom">{{user.name}} {{user.surname}}</a>
+                        <a href="/single-user" class="text-white font-custom animated-underline">{{user.name}} {{user.surname}}</a>
                         <div>
-                            <button class="bg-transparent border-0" (click)="goToSingleUser()">
+                            <button class="bg-transparent border-0" (click)="goToSingleUser(user.id)">
                                 <img src="../../assets/eye.png" alt="">
                             </button>
                             <button class="bg-transparent border-0" (click)="openDialog(user.id)">

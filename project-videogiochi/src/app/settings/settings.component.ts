@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent {
+  userRole : string | null = ''
+  isSuperAdmin : boolean = false;
 
+  constructor(){
+    this.userRole = sessionStorage.getItem('roles')
+    this.isSuperAdmin = this.userRole === 'superadmin'
+  }
+
+
+  
 }

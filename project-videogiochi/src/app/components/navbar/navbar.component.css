@@ -1,4 +1,4 @@
-.animated-underline{
+/* .animated-underline{
     position: relative;
     text-decoration: none;
 }
@@ -19,10 +19,49 @@
 .animated-underline:hover::after{
     transform: scaleX(1);
     transform-origin: bottom left;
+} */
+
+/* Overlay per il menu mobile */
+
+.navbar {
+    position: fixed; /* La navbar deve essere fissa in cima alla pagina */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10001; /* Deve essere sopra l'overlay */
+    background-color: rgb(0, 0, 0); /* Sfondo semi-trasparente per la navbar */
+    padding: 10px; /* Esegui eventuali modifiche per il layout della navbar */
+}
+
+.overlay {
+    position: fixed;
+    width: 100vw;
+    right: 0px;
+    left: 0px;
+    top: 98px;
+    background-color: rgb(0, 0, 0); /* Sfondo semi-trasparente per dare l'effetto overlay */
+    z-index: 9999; /* Sovrascrive altri elementi sulla pagina */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.overlay .customBorder {
+    transition: transform 0.3s ease;
+}
+
+.overlay.open .customBorder {
+    display: flex;
 }
 
 .customHamburgerMenu{
     width: 100%;
+    cursor: pointer;
+}
+
+.customHamburgerMenu:hover {
+    opacity: 0.8;
 }
 
 .customBorder:hover{
