@@ -79,10 +79,10 @@ app.get('/products/xbox',(req,res) => {
 
 // Endpoint per aggiungere un prodotto
 app.post('/products', (req, res) => {
-  const { name, price,category,condizione } = req.body;
-  const insertQuery = 'INSERT INTO products (name,price,category,condizione) VALUES (?,?,?,?)';
+  const { name, price,category,condizione,image } = req.body;
+  const insertQuery = 'INSERT INTO products (name,price,category,condizione,image) VALUES (?,?,?,?,?)';
 
-  connection.query(insertQuery,[name,price,category,condizione],(error,results) => {
+  connection.query(insertQuery,[name,price,category,condizione,image],(error,results) => {
     if (error) {
       console.log('errore nell\'insermiento del prodotto:',error);
       res.status(500).json({ error: 'Errore nell\'inserimento del prodotto' })
