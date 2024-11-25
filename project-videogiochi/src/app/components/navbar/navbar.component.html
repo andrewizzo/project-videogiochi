@@ -19,7 +19,7 @@
                         class="text-white animated-underline customHeight d-flex align-items-center">Inserisci</span></button>
             </div>
             <div class="d-flex align-items-center">
-                <button class="bg-transparent border-0" (click)="scrollToSection('prodotti')"><span
+                <button class="bg-transparent border-0" (click)="goToHome()"><span
                         style="font-family: 'noisy';font-size: 350%;"
                         class="text-white animated-underline customHeight d-flex align-items-center">Prodotti</span></button>
             </div>
@@ -65,7 +65,7 @@
             </a>
         </div> -->
         <div class="customBorder w-100" (click)="$event.stopPropagation()">
-            <button (click)="scrollToSection('prodotti')"
+            <button (click)="goToHome()"
                 class="w-100 border-0 bg-transparent customHeight text-white d-flex justify-content-center align-items-center">
                 <h1
                     class="font-custom text-white animated-underline fs-1 d-flex justify-content-center align-items-center m-0">
@@ -109,5 +109,9 @@
             </h1>
         </button>
         </div>
+    </div>
+    <!-- Spinner di caricamento (mostrato quando isLoading è true) -->
+    <div *ngIf="isLoading" class="spinner-overlay">
+        <div class="spinner"></div>
     </div>
 </div>

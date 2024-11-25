@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
+
 
 @Component({
   selector: 'app-my-profile',
@@ -11,7 +14,9 @@ import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-d
 export class MyProfileComponent implements OnInit{
 
   isDisabled : boolean = false;
-  constructor(private userService : UsersService,private dialog : MatDialog){}
+  isLoading : boolean = false;
+
+  constructor(private userService : UsersService,private dialog : MatDialog,private router : Router){}
   ngOnInit(): void {
     this.getUserName()
   }
@@ -54,7 +59,11 @@ export class MyProfileComponent implements OnInit{
   }
 
   modifyUser(){
-    this.isDisabled = true;
+    if (this.isDisabled === false) {
+      this.isDisabled = true;
+    }else{
+      this.isDisabled = false
+    }
   }
 
   resetForm(){
@@ -78,5 +87,27 @@ export class MyProfileComponent implements OnInit{
     }
     // console.log(storedEmail,storedRoles,storedSurname,storedUserName);
     
+  }
+
+  goToSetting(){
+    this.startLoading('settings')
+  }
+
+  startLoading(route: string) {
+    // Imposta isLoading su true
+    this.isLoading = true;
+  
+    // Usa setTimeout per forzare il rendering dello spinner
+    setTimeout(() => {
+      this.router.navigate([route]);
+  
+      // Ascolta quando la navigazione è completata
+      this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd)  // Solo quando la navigazione è completata
+      ).subscribe(() => {
+        // Una volta che la navigazione è completata, imposta isLoading a false
+        this.isLoading = false;
+      });
+    }, 600);  // Delay di 600ms per forzare il rendering dello spinner
   }
 }

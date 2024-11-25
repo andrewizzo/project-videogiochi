@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { ScrollService } from 'src/app/services/scroll.service';
 import { UsersService } from 'src/app/services/users.service';
+import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -12,12 +13,14 @@ export class NavbarComponent implements OnInit{
   userName : string = ''
   userRole : string | null = ''
   isSuperAdmin : boolean = false;
+  isOpenDiv : boolean = false;
+  isLoading : boolean = false;
 
   constructor(private router : Router,private scrollService:ScrollService,private usersService : UsersService){
     this.userRole = sessionStorage.getItem('roles')
     this.isSuperAdmin = this.userRole === 'superadmin'
   }
-  isOpenDiv : boolean = false;
+  
 
   ngOnInit(): void {
     const storedUserName = sessionStorage.getItem('userName')
@@ -53,31 +56,47 @@ export class NavbarComponent implements OnInit{
   // }
 
   goToInsertProduct(){
-    this.router.navigate(['insertProduct'])
+    if (this.router.url !== '/insertProduct') {
+      this.startLoading('insertProduct')
+    }
   }
 
   goToHome(){
-    this.router.navigate(['home'])
+    if (this.router.url === '/home') {
+      this.scrollToSection('prodotti')
+    }else{
+      this.startLoading('home')
+    }
   }
 
   goToProducts(){
-    this.router.navigate(['products'])
+    if(this.router.url !== '/products'){
+      this.startLoading('products')
+    }
   }
 
   goToCartShop(){
-    this.router.navigate(['cartShop'])
+    if(this.router.url !== '/cartShop'){
+      this.startLoading('cartShop')
+    }
   }
 
   goToMaps(){
-    this.router.navigate(['maps'])
+    if(this.router.url !== '/maps'){
+      this.startLoading('maps')
+    }
   }
 
   goToMyProfile(){
-    this.router.navigate(['my-profile'])
+    if(this.router.url !== '/my-profile'){
+      this.startLoading('my-profile')
+    }
   }
 
   goToSettings(){
-    this.router.navigate(['settings'])
+    if(this.router.url !== '/settings'){
+      this.startLoading('settings')
+    }
   }
 
   scrollToSection(section:string){
@@ -87,7 +106,27 @@ export class NavbarComponent implements OnInit{
 
   logout(){
     this.usersService.logout()
-    this.router.navigate(['/login'])
+    this.startLoading('login')
+    // this.router.navigate(['/login'])
   }
+
+  startLoading(route: string) {
+    // Imposta isLoading su true
+    this.isLoading = true;
+  
+    // Usa setTimeout per forzare il rendering dello spinner
+    setTimeout(() => {
+      this.router.navigate([route]);
+  
+      // Ascolta quando la navigazione è completata
+      this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd)  // Solo quando la navigazione è completata
+      ).subscribe(() => {
+        // Una volta che la navigazione è completata, imposta isLoading a false
+        this.isLoading = false;
+      });
+    }, 600);  // Delay di 600ms per forzare il rendering dello spinner
+  }
+  
 
 }

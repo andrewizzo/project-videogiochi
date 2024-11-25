@@ -1,19 +1,28 @@
-<div class="container-fluid p-0 m-0 d-flex flex-column gap-5">
+<div class="container-fluid p-0 m-0 d-flex flex-column gap-4">
     <div>
         <app-navbar></app-navbar>
     </div>
 
-    <div class="container w-75">
+    <!-- <div class="container w-75">
         <a (click)="goToUsers()" class="fs-4 text-black">
             <img src="../../assets/left-arrow-black.png" alt="left-arrow-black">
             <span class="font-custom curosrPointer">Indietro</span>
         </a>
+    </div> -->
+
+    <div class="container-fluid p-0 w-75 d-flex flex-row">
+        <div class="mt-5 pt-5">
+            <a (click)="goToUsers()" class="fs-4 text-black curosorPointer">
+               <img src="../../assets/left-arrow-black.png" alt="left-arrow-black">
+               <!-- <span class="font-custom">Indietro</span> -->
+           </a>
+       </div>
+       <div class="mt-5 pt-5 w-100 d-flex justify-content-center align-items-center fs-1">
+           <span class="font-custom text-black">Utente</span>
+       </div>
     </div>
     
-    <div class="container w-75 d-flex flex-column gap-4">
-        <div class="fs-1 text-center">
-            <span class="font-custom">Utente</span>
-        </div>
+    <div class="container w-75 d-flex flex-column gap-4 p-0">
 
         <div class="bg-black rounded w-100 container p-3">
             <div class="d-flex flex-row justify-content-center align-items-center gap-3 p-3 container">
@@ -55,5 +64,10 @@
                 </button>
             </div>
         </div>
+    </div>
+
+    <!-- Spinner di caricamento (mostrato quando isLoading è true) -->
+    <div *ngIf="isLoading" class="spinner-overlay">
+        <div class="spinner"></div>
     </div>
 </div>

@@ -92,6 +92,11 @@ const routes: Routes = [
     path:'single-user',
     loadChildren:() => import('./single-user/single-user.module').then(si => si.SingleUserModule),
     canActivate:[authGuard]
+  },
+  {
+    path:'reset-password',
+    loadChildren:() => import('./reset-password/reset-password.module').then(re => re.ResetPasswordModule),
+    canActivate:[authGuard]
   }
 ];
 

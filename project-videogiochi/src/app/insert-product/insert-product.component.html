@@ -1,34 +1,40 @@
-<div class="container-fluid m-0 p-0 h-100 gap-3 d-flex flex-column">
+<div class="container-fluid m-0 p-0 h-100 gap-4 d-flex flex-column">
     <div>
         <app-navbar></app-navbar>
     </div>
 
-    <div class="container w-75">
-        <a href="/home" class="fs-4 text-black">
-            <img src="../../assets/left-arrow-black.png" alt="left-arrow-black">
-            <span class="font-custom">Indietro</span>
-        </a>
+    <div class="container-fluid p-0 w-75 d-flex flex-row">
+        <div class="mt-5 pt-5">
+            <a href="/home" class="fs-4 text-black">
+                <img src="../../assets/left-arrow-black.png" alt="left-arrow-black">
+                <!-- <span class="font-custom">Indietro</span> -->
+            </a>
+        </div>
+        <div class="mt-5 pt-5 w-100 d-flex justify-content-center align-items-center fs-1">
+            <span class="font-custom text-black">Inserisci Prodotto</span>
+        </div>
     </div>
     
-    <div class="container d-flex justify-content-center align-items-center flex-column p-3 ">
+    <div class="container d-flex justify-content-center align-items-center flex-column w-75 p-0">
         <div
-            class="d-flex flex-column gap-5 w-100 align-items-center border border-2 border-dark py-4 rounded bgCustom">
+            class="d-flex flex-column gap-3 w-100 align-items-center border border-2 border-dark py-4 rounded bg-black p-0">
             <label class="fs-3">
                 <span class="font-custom text-decoration-underline text-white">Nome Prodotto</span>
             </label>
-            <input [(ngModel)]="productName" type="text" class="w-75 p-3 rounded d-flex justify-content-center fs-3">
+            <input [(ngModel)]="productName" type="text" placeholder="Inserisci Nome Prodotto*" class="w-75 p-2 rounded d-flex justify-content-center fs-3 font-custom">
 
             <label class="fs-3">
                 <span class="font-custom text-decoration-underline text-white">Prezzo</span>
             </label>
-            <input [(ngModel)]="productPrice" type="number" class="w-75 p-3 rounded d-flex justify-content-center fs-3">
+            <input [(ngModel)]="productPrice" type="number" class="w-75 p-2 rounded d-flex justify-content-center fs-3">
 
             <label class="fs-3">
                 <span class="font-custom text-decoration-underline text-white">Categoria</span>
             </label>
             <!-- <input [(ngModel)]="productCategory" type="text" class="w-75 p-3 rounded d-flex justify-content-center fs-3"> -->
-            <select name="category" id="category" class="w-75 p-3 rounded d-flex justify-content-center fs-3 "
+            <select name="category" id="category" class="w-75 p-2 rounded d-flex justify-content-center fs-3 "
                 [(ngModel)]="productCategory">
+                <option value="" disabled selected hidden>Inserisci Categoria*</option>
                 <option value="Playstation">Playstation</option>
                 <option value="Xbox">Xbox</option>
                 <option value="Nintendo">Nintendo</option>
@@ -38,14 +44,15 @@
                 <span class="font-custom text-decoration-underline text-white">Condizione</span>
             </label>
             <!-- <input [(ngModel)]="productCondizione" type="text" class="w-75 p-3 rounded d-flex justify-content-center fs-3"> -->
-            <select name="condizione" id="condizione" class="w-75 p-3 rounded d-flex justify-content-center fs-3"
+            <select name="condizione" id="condizione" class="w-75 p-2 rounded d-flex justify-content-center fs-3"
                 [(ngModel)]="productCondizione">
+                <option value="" disabled selected hidden>Inserisci Condizione*</option>
                 <option value="Nuovo">Nuovo</option>
                 <option value="Usato">Usato</option>
             </select>
 
             <div>
-                <button (click)="saveProduct()" class="btn btn-success p-4 fs-4">
+                <button (click)="saveProduct()" class="btn btn-success fs-4">
                     <span class="font-custom text-white">Inserisci Prodotto</span>    
                 </button>
             </div>

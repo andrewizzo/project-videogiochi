@@ -1,20 +1,21 @@
-<div class="container-fluid p-0 m-0 d-flex flex-column gap-5">
+<div class="container-fluid p-0 m-0 d-flex flex-column gap-4">
     <div>
         <app-navbar></app-navbar>
     </div>
 
-    <div class="container w-75">
-        <a href="/settings" class="fs-4 text-black">
-            <img src="../../assets/left-arrow-black.png" alt="left-arrow-black">
-            <span class="font-custom">Indietro</span>
-        </a>
+    <div class="container-fluid p-0 w-75 d-flex flex-row">
+        <div class="mt-5 pt-5">
+            <a (click)="goToSetting()" class="fs-4 text-black cursorPointer">
+                <img src="../../assets/left-arrow-black.png" alt="left-arrow-black">
+                <!-- <span class="font-custom">Indietro</span> -->
+            </a>
+        </div>
+        <div class="mt-5 pt-5 w-100 d-flex justify-content-center align-items-center fs-1">
+            <span class="font-custom text-black">Utenti</span>
+        </div>
     </div>
 
-    <div class="container w-75 d-flex flex-column gap-4">
-        <div class="fs-1 text-center">
-            <span class="font-custom">Utenti</span>
-        </div>
-
+    <div class="container w-75 d-flex flex-column gap-3 p-0">
         <div class="bg-black rounded w-100">
             <div class="d-flex flex-row">
                 <div class="d-flex flex-row w-100 justify-content-start p-3 border-bottom fs-4">
@@ -54,5 +55,10 @@
                 </button>
             </div>
         </div>
+    </div>
+
+    <!-- Spinner di caricamento (mostrato quando isLoading è true) -->
+    <div *ngIf="isLoading" class="spinner-overlay">
+        <div class="spinner"></div>
     </div>
 </div>

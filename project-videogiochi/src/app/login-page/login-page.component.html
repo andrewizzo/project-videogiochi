@@ -29,4 +29,8 @@
             <span class="font-custom">Non sei registrato? Registrati.</span>
         </a>
     </div>
+    <!-- Spinner di caricamento (mostrato quando isLoading è true) -->
+    <div *ngIf="isLoading" class="spinner-overlay">
+        <div class="spinner"></div>
+    </div>
 </div>

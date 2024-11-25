@@ -1,18 +1,26 @@
-<div class="container-fluid p-0 m-0 d-flex flex-column gap-5">
+<div class="container-fluid p-0 m-0 d-flex flex-column gap-4">
     <div>
         <app-navbar></app-navbar>
     </div>
 
-    <div class="container w-75">
+    <!-- <div class="container w-75 mt-5 pt-5">
         <a href="/home" class="fs-4 text-black">
             <img src="../../assets/left-arrow-black.png" alt="left-arrow-black">
             <span class="font-custom">Indietro</span>
         </a>
-    </div>
+    </div> -->
 
     <div class="container w-75 d-flex flex-column gap-4">
-        <div class="fs-1 text-center">
-            <span class="font-custom">Profilo</span>
+        <div class="fs-1 text-center d-flex flex-row">
+            <div class="mt-5 pt-5">
+                <a (click)="goToSetting()" class="fs-4 text-black cursorPointer">
+                    <img src="../../assets/left-arrow-black.png" alt="left-arrow-black">
+                    <!-- <span class="font-custom">Indietro</span> -->
+                </a>
+            </div>
+            <div class="mt-5 w-100 pt-5 d-flex justify-content-center align-items-center">
+                <span class="font-custom text-black">Profilo</span>
+            </div>
         </div>
         <div class="bg-black rounded w-100 container p-3">
             <div class="d-flex flex-row justify-content-center align-items-center gap-3 p-3 container">
@@ -38,10 +46,12 @@
             <div class="d-flex flex-row justify-content-center align-items-center gap-3 p-3">
                 <div class="d-flex flex-column w-50">
                     <label for="password" class="w-100 font-custom text-white fs-5">Password</label>
-                    <input type="password" placeholder="Cambia Password*" class="font-custom text-black" [(ngModel)]="userPassword" [disabled]="!isDisabled">
+                    <a href="/reset-password" class="text-white" [attr.href]="!isDisabled ? null : '/reset-password'">
+                        <span class="font-custom">Cambia Password</span>
+                    </a>
                 </div>
                 <div class="d-flex flex-column w-50">
-                    <label for="name" class="w-100 font-custom text-white fs-6">Data di Nascita</label>
+                    <label for="name" class="w-100 font-custom text-white fs-5">Data di Nascita</label>
                     <input type="date" class="font-custom text-black" [disabled]="!isDisabled">
                 </div>
             </div>
@@ -54,5 +64,10 @@
                 </button>
             </div>
         </div>
+    </div>
+
+    <!-- Spinner di caricamento (mostrato quando isLoading è true) -->
+    <div *ngIf="isLoading" class="spinner-overlay">
+        <div class="spinner"></div>
     </div>
 </div>

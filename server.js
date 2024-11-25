@@ -235,7 +235,7 @@ function authenticateToken(req, res, next) {
 
 function authorizeRoles(...allowedRoles) {
   return (req, res, next) => {
-    if (!req.user || !allowedRoles.includes(req.user.role)) {
+    if (!req.user || !allowedRoles.includes(req.user.roles)) {
       return res.status(403).json({ error: 'Accesso non autorizzato per questo ruolo' });
     }
     next();

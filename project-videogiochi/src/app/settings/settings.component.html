@@ -1,41 +1,50 @@
-<div class="container-fluid p-0 m-0 h-100 d-flex flex-column gap-5">
+<div class="container-fluid p-0 m-0 h-100 d-flex flex-column gap-4">
     <div>
         <app-navbar></app-navbar>
     </div>
 
-    <div class="container w-75">
-        <a href="/home" class="fs-4 text-black">
-            <img src="../../assets/left-arrow-black.png" alt="left-arrow-black">
-            <span class="font-custom">Indietro</span>
-        </a>
+    <div class="container-fluid p-0 w-75 d-flex flex-row">
+        <div class="mt-5 pt-5">
+             <a (click)="goBack()" class="fs-4 text-black cursorPointer">
+                <img src="../../assets/left-arrow-black.png" alt="left-arrow-black">
+                <!-- <span class="font-custom">Indietro</span> -->
+            </a>
+        </div>
+        <div class="mt-5 pt-5 w-100 d-flex justify-content-center align-items-center fs-1">
+            <span class="font-custom text-black">Impostazioni</span>
+        </div>
     </div>
 
     <div class="bg-black container w-75 rounded d-flex flex-column gap-3 p-3">
         <div class="d-flex flex-column gap-3">
             <div *ngIf="isSuperAdmin" class="w-100 border-bottom">
-                <a href="/users" class="fs-4 text-white w-100 d-flex flex-row justify-content-between align-items-center text-decoration-none" >
+                <a (click)="goToUsers()" class="cursorPointer fs-4 text-white w-100 d-flex flex-row justify-content-between align-items-center text-decoration-none" >
                     <span class="font-custom animated-underline">Utenti</span>
                     <img src="../../assets/right-arrow.png" alt="right-arrow" >
                 </a>
             </div>
             <div class="w-100 border-bottom">
-                <a href="/my-profile" class="fs-4 text-white w-100 d-flex flex-row justify-content-between align-items-center text-decoration-none" >
+                <a (click)="goToMyProfile()" class="cursorPointer fs-4 text-white w-100 d-flex flex-row justify-content-between align-items-center text-decoration-none" >
                     <span class="font-custom animated-underline">Profilo</span>
                     <img src="../../assets/right-arrow.png" alt="right-arrow" >
                 </a>
             </div>
             <div class="w-100 border-bottom">
-                <a href="/ticket" class="fs-4 text-white w-100 d-flex flex-row justify-content-between align-items-center text-decoration-none" >
+                <a (click)="goToTicket()" class="cursorPointer fs-4 text-white w-100 d-flex flex-row justify-content-between align-items-center text-decoration-none" >
                     <span class="font-custom animated-underline">Invia Ticket</span>
                     <img src="../../assets/right-arrow.png" alt="right-arrow" >
                 </a>
             </div>
             <div class="w-100 border-bottom">
-                <button class="fs-4 bg-transparent border-0 w-100 d-flex flex-row justify-content-between align-items-center p-0" >
+                <button class="fs-4 bg-transparent border-0 w-100 d-flex flex-row justify-content-between align-items-center p-0" (click)="logout()">
                     <span class="font-custom text-danger text-decoration-underline">Esci</span>
                     <img src="../../assets/right-arrow.png" alt="right-arrow" >
                 </button>
             </div>
         </div>
+    </div>
+    <!-- Spinner di caricamento (mostrato quando isLoading è true) -->
+    <div *ngIf="isLoading" class="spinner-overlay">
+        <div class="spinner"></div>
     </div>
 </div>

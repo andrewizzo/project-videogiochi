@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
 import { Users } from '../model/users.model';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-single-user',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class SingleUserComponent implements OnInit,OnDestroy {
   user : any | null;
+  isLoading : boolean = false;
   constructor(private userService : UsersService,private router : Router){}
   
   ngOnDestroy(): void {
@@ -58,6 +60,25 @@ export class SingleUserComponent implements OnInit,OnDestroy {
 
   goToUsers(){
     sessionStorage.removeItem('user')
-    this.router.navigate(['/users'])
+    this.startLoading('users')
+    // this.router.navigate(['/users'])
+  }
+
+  startLoading(route: string) {
+    // Imposta isLoading su true
+    this.isLoading = true;
+  
+    // Usa setTimeout per forzare il rendering dello spinner
+    setTimeout(() => {
+      this.router.navigate([route]);
+  
+      // Ascolta quando la navigazione è completata
+      this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd)  // Solo quando la navigazione è completata
+      ).subscribe(() => {
+        // Una volta che la navigazione è completata, imposta isLoading a false
+        this.isLoading = false;
+      });
+    }, 600);  // Delay di 600ms per forzare il rendering dello spinner
   }
 }

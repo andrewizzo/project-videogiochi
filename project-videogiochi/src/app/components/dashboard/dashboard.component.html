@@ -1,4 +1,4 @@
-<div class="dashboard">
+<div class="dashboard scrollable-container">
     <div class="backGroundImage1 d-flex align-items-center">
         <div class="container d-flex justify-content-evenly align-items-center h-50 flex-column gap-5 ">
             <div class="w-100 d-flex justify-content-center">
@@ -68,6 +68,11 @@
                 </button>
             </div>
         </div>
+    </div>
+
+    <!-- Spinner di caricamento (mostrato quando isLoading è true) -->
+    <div *ngIf="isLoading" class="spinner-overlay">
+        <div class="spinner"></div>
     </div>
 </div>
 

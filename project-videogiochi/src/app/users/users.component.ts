@@ -4,7 +4,8 @@ import { UsersService } from '../services/users.service';
 import { SharedModule } from '../shared/shared.module';
 import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
 import { MatDialog } from '@angular/material/dialog'; 
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class UsersComponent implements OnInit{
   public totalePagine : number = 0
   public search : string = ''
   public utentiFiltrati : any[] = []
+  isLoading : boolean = false;
   
 
   //  this.utentiFiltrati = this.users;
@@ -126,7 +128,30 @@ export class UsersComponent implements OnInit{
 
   goToSingleUser(idNumber:number){
     this.usersService.userId = idNumber
-    this.router.navigate(['single-user'])
+    this.startLoading('single-user')
+    // this.router.navigate(['single-user'])
+  }
+
+  goToSetting(){
+    this.startLoading('settings')
+  }
+
+  startLoading(route: string) {
+    // Imposta isLoading su true
+    this.isLoading = true;
+  
+    // Usa setTimeout per forzare il rendering dello spinner
+    setTimeout(() => {
+      this.router.navigate([route]);
+  
+      // Ascolta quando la navigazione è completata
+      this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd)  // Solo quando la navigazione è completata
+      ).subscribe(() => {
+        // Una volta che la navigazione è completata, imposta isLoading a false
+        this.isLoading = false;
+      });
+    }, 600);  // Delay di 600ms per forzare il rendering dello spinner
   }
 }
 
