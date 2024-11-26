@@ -48,7 +48,7 @@ app.get('/products', (req, res) => {
   });
 });
 
-
+// Endpoint per ottenere tutti i prodotti playstation
 app.get('/products/playstation',(req,res) => {
   const queryPlatstation = 'SELECT * FROM products WHERE category = ?';
   const categoryPlaystation = 'playstation';
@@ -63,6 +63,7 @@ app.get('/products/playstation',(req,res) => {
   })
 })
 
+// Endpoint per ottenere tutti i prodotti xbox
 app.get('/products/xbox',(req,res) => {
   const queryXbox = 'SELECT * FROM products WHERE category = ?'
   const categoryXbox = 'xbox';
@@ -71,6 +72,36 @@ app.get('/products/xbox',(req,res) => {
     if (error) {
       console.log('prodotti non trovati',error);
       res.status(500).json({error:'errore nel trovare i prodotti della categoria xbox'})
+      return
+    }
+    res.status(200).json(results)
+  })
+})
+
+// Endpoint per ottenere tutti i prodotti nintendo
+app.get('/products/nintendo',(req,res) => {
+  const queryNintendo = 'SELECT * FROM products WHERE category = ?'
+  const categoryNintendo = 'nintendo';
+
+  connection.query(queryNintendo,[categoryNintendo],(error,results) => {
+    if (error) {
+      console.log('prodotti non trovati',error);
+      res.status(500).json({error:'errore nel trovare i prodotti della categoria nintendo'})
+      return
+    }
+    res.status(200).json(results)
+  })
+})
+
+// Endpoint per ottenere tutti i prodotti accessori
+app.get('/products/accessori',(req,res) => {
+  const queryAccessori = 'SELECT * FROM products WHERE category = ?'
+  const categoryAccessori = 'accessori'
+
+  connection.query(queryAccessori,[categoryAccessori],(error,results) => {
+    if (error) {
+      console.log('prodotti non trovati',error);
+      res.status(500).json({error:'errore nel trovare i prodotti della categoria accessori'})
       return
     }
     res.status(200).json(results)
@@ -89,6 +120,28 @@ app.post('/products', (req, res) => {
     }
     res.status(201).json({message:'Prodotto aggiunto'});
   })
+});
+
+//solo questa rotta dinamica va dopo le statiche
+// Endpoint per ottenere un singolo prodotto
+app.get('/products/:id', (req, res) => {
+  const productId = req.params.id;  // Ottieni l'ID del prodotto dalla richiesta
+
+  const findProductQuery = 'SELECT * FROM products WHERE id = ?';
+
+  connection.query(findProductQuery, [productId], (error, results) => {
+    if (error) {
+      console.error('Errore nella ricerca del prodotto:', error);
+      return res.status(500).json({ error: 'Errore nel recupero del prodotto' });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ error: 'Prodotto non trovato' });
+    }
+
+    // Restituisce i dati del prodotto trovato
+    res.status(200).json(results[0]);
+  });
 });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////

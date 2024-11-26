@@ -41,7 +41,12 @@ export class UsersService{
 
     // Metodo per salvare il token nel localStorage
     saveToken(token: string): void {
-        localStorage.setItem('authToken', token);
+        sessionStorage.setItem('authToken', token);
+    }
+
+    // Metodo per ottenere il token dal localStorage
+    getToken(): string | null {
+        return sessionStorage.getItem('authToken');
     }
 
     getUsers():Observable<any>{
@@ -68,20 +73,16 @@ export class UsersService{
     }
 
     getSingleUser(id:number){
-        const token = sessionStorage.getItem('authToken')
+        const token = this.getToken()
+        // const token = sessionStorage.getItem('authToken')
 
-        if (!token) {
+        if(!token) {
             console.log('Token non trovato');
         }
 
         const headers = new HttpHeaders().set('Authorization',`Bearer ${token}`)
         const url = `${this.apiUrl}/users/${id}`
         return this.http.get<any>(url,{headers})
-    }
-
-     // Metodo per ottenere il token dal localStorage
-    getToken(): string | null {
-        return sessionStorage.getItem('authToken');
     }
 
     isAuthenticated(): boolean {

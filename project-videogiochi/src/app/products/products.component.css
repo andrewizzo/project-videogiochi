@@ -1,11 +1,25 @@
-.gradient{
-    background: rgb(170,172,180);
-background: radial-gradient(circle, rgba(170,172,180,1) 0%, rgba(45,38,39,1) 100%);
+.border-custom{
+    border: 2px solid black;
 }
 
-.fixed-footer{
-    position: relative;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+.border-custom:hover{
+    border: 2px solid rgba(21, 0, 255);
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+/* Overlay che copre tutto lo schermo */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(21, 0, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }

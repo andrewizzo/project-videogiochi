@@ -8,6 +8,7 @@ import { Product } from "../model/product.model";
 })
 export class ProductService{
     private apiUrl = 'http://localhost:3000/products';
+    productId : number | null = null;
 
     constructor(private http : HttpClient){}
 
@@ -22,11 +23,31 @@ export class ProductService{
         return this.http.get(this.apiUrl)
     }
 
+    getSingleProduct(id: number): Observable<any> {
+        return this.http.get(`${this.apiUrl}/${id}`);
+    }
+
     getPlaystationProducts():Observable<any>{
         return this.http.get(`${this.apiUrl}/playstation`)
     }
     
     getXboxProducts():Observable<any>{
         return this.http.get(`${this.apiUrl}/xbox`)
+    }
+
+    getNintendoProducts():Observable<any>{
+        return this.http.get(`${this.apiUrl}/nintendo`)
+    }
+
+    getAccessoriProducts():Observable<any>{
+        return this.http.get(`${this.apiUrl}/accessori`)
+    }
+
+    setProductId(id:number){
+        this.productId = id
+    }
+
+    getProductId():number | null{
+        return this.productId;
     }
 }

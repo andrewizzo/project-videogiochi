@@ -12,11 +12,16 @@ import { filter } from 'rxjs';
 export class SingleUserComponent implements OnInit,OnDestroy {
   user : any | null;
   isLoading : boolean = false;
+
+  userName : string = "";
+  userSurname : string = "";
+  userEmail : string = "";
+  userRuolo : string = "";
+  userPassword : string = "";
+
   constructor(private userService : UsersService,private router : Router){}
   
-  ngOnDestroy(): void {
-    sessionStorage.removeItem('user')
-  }
+  
 
   ngOnInit(): void {
     const savedUser = sessionStorage.getItem('user')
@@ -36,12 +41,6 @@ export class SingleUserComponent implements OnInit,OnDestroy {
       }
     }
   }
-
-  userName : string = "";
-  userSurname : string = "";
-  userEmail : string = "";
-  userRuolo : string = "";
-  userPassword : string = "";
 
   setSingleUser(user:any){
     this.userName = user.name
@@ -80,5 +79,10 @@ export class SingleUserComponent implements OnInit,OnDestroy {
         this.isLoading = false;
       });
     }, 600);  // Delay di 600ms per forzare il rendering dello spinner
+  }
+
+
+  ngOnDestroy(): void {
+    sessionStorage.removeItem('user')
   }
 }
