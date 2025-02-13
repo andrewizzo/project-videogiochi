@@ -36,8 +36,8 @@ export class NintendoPageComponent implements OnInit{
 
   goToDetailProduct(idNumber:number){
     this.productService.productId = idNumber
-    sessionStorage.setItem('route','/NintendoPage')
-    this.startLoading('detailProduct')
+    sessionStorage.setItem('route','/nintendo-page')
+    this.startLoading('detail-product')
   }
 
   startLoading(route: string) {

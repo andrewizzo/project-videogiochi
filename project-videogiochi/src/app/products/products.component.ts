@@ -54,6 +54,6 @@ export class ProductsComponent implements OnInit{
   goToDetailProduct(idNumber:number){
     this.productService.productId = idNumber
     sessionStorage.setItem('route','/products')
-    this.startLoading('detailProduct')
+    this.startLoading('detail-product')
   }
 }

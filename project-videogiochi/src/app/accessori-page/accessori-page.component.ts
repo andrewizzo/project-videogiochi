@@ -35,7 +35,7 @@ export class AccessoriPageComponent implements OnInit{
   goToDetailProduct(idNumber:number){
     this.productService.productId = idNumber
     sessionStorage.setItem('route','/accessori')
-    this.startLoading('detailProduct')
+    this.startLoading('detail-product')
   }
 
   startLoading(route: string) {

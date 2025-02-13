@@ -35,8 +35,8 @@ export class XboxPageComponent implements OnInit {
 
   goToDetailProduct(idNumber:number){
     this.productService.productId = idNumber
-    sessionStorage.setItem('route','/xboxPage')
-    this.startLoading('detailProduct')
+    sessionStorage.setItem('route','/xbox-page')
+    this.startLoading('detail-product')
   }
 
   startLoading(route: string) {

@@ -3,21 +3,20 @@
         <app-navbar></app-navbar>
     </div>
 
-    <div class="container-fluid p-0 ">
+    <div class="container p-0 ">
         <div class="container d-flex flex-row">
-            <div class="mt-5 pt-5">
+            <div>
                 <a (click)="goBack()" class="fs-4 text-black cursor-pointer">
                    <img src="../../assets/left-arrow-black.png" alt="left-arrow-black">
                    <!-- <span class="font-custom">Indietro</span> -->
                </a>
            </div>
-           <div class="mt-5 pt-5 w-100 d-flex justify-content-center align-items-center fs-1">
-               <span class="font-custom text-black">Xbox</span>
+           <div class="w-100 d-flex justify-content-center align-items-center fs-1">
+               <span class="font-custom text-black">{{pageName}}</span>
            </div>
         </div>
     </div>
-    
-    <div>
+    <!-- <div>
         <div class="container ">
             <div class="border border-2 border-dark rounded p-3 gradient">
                 <input type="text">
@@ -25,27 +24,41 @@
                 <select name="" id=""></select>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="container">
         <div class="row p-0 d-flex gx-2 gy-2">
-            <div class="col-lg-4 col-md-6 col-12">
-                <button class="border-0 bg-transparent w-100 p-0">
-                    <div class="border-custom rounded p-3 d-flex flex-column gap-1 align-items-center">
-                        <img [src]="product?.image" class="">
-                        <div class="fs-4">
-                            <span class="font-custom">{{product?.name}}</span>
-                        </div>
-                        <div class="fs-6">
-                            <span class="font-custom">{{'€' + product?.price}}</span>
-                        </div>
-                        <div class="fs-6">
-                            <span class="font-custom">{{product?.condizione}}</span>
-                        </div>
-                        <div class="fs-6">
-                            <span class="font-custom">{{product?.category}}</span>
-                        </div>
+            <div class="col-lg-4 col-md-6 col-12 d-flex flex-column d-md-flex flex-md-row align-items-center border border-2 border-dark rounded w-100 ">
+                <div class="border-custom rounded p-3 d-flex flex-column gap-1 align-items-center w-100 w-md-50">
+                    <img [src]="product?.image" class="w-75">
+                    <!-- <div class="fs-4">
+                        <span class="font-custom">{{product?.name}}</span>
                     </div>
-                </button>
+                    <div class="fs-6">
+                        <span class="font-custom">{{'€' + product?.price}}</span>
+                    </div>
+                    <div class="fs-6">
+                        <span class="font-custom">{{product?.condizione}}</span>
+                    </div>
+                    <div class="fs-6">
+                        <span class="font-custom">{{product?.category}}</span>
+                    </div> -->
+                </div>
+                <div class="p-3 d-flex flex-column gap-2 justify-content-evenly h-100 w-100 w-md-50">
+                    <div class="d-flex flex-column gap-2 w-100">
+                        <span class="font-custom fs-1">{{product?.name}}</span>
+                        <span class="font-custom text-secondary">Prezzo:</span>
+                        <span class="font-custom fs-1">{{'€' + product?.price}}</span>
+                        <span class="font-custom text-secondary">Condizione:</span>
+                        <span class="font-custom fs-5">{{product?.condizione}}</span>
+                        <span class="font-custom text-secondary">Categoria:</span>
+                        <span class="font-custom fs-5">{{product?.category}}</span>
+                        <span class="font-custom text-secondary">Descrizione:</span>
+                        <span class="font-custom fs-5">{{'{' + product?.description + '}'}}</span>
+                    </div>
+                    <div>
+                        <button (click)="goToContactUs()" class="btn btn-success">Contattaci</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

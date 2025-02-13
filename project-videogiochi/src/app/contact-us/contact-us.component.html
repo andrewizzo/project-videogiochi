@@ -1,30 +1,30 @@
-<div class="container-fluid p-0 m-0 d-flex flex-column gap-4">
+<div class=" p-0 m-0 d-flex flex-column gap-4">
     <div>
         <app-navbar></app-navbar>
     </div>
 
     <div class="container p-0 w-75 d-flex flex-row">
         <div>
-            <a (click)="goToSetting()" class="fs-4 text-black cursorPointer">
+            <a (click)="goBack()" class="fs-4 text-black cursorPointer">
                 <img src="../../assets/left-arrow-black.png" alt="left-arrow-black">
                 <!-- <span class="font-custom">Indietro</span> -->
             </a>
         </div>
         <div class="w-100 d-flex justify-content-center align-items-center fs-1">
-            <span class="font-custom text-black" >Invia Ticket</span>
+            <span class="font-custom text-black" >Contattaci</span>
         </div>
     </div>
     
     <div class="container bg-black w-75 rounded d-flex flex-column gap-4 p-3">
         
         <div class="d-flex justify-content-center fs-5">
-            <textarea rows="13" cols="50" name="ticket" id="ticket" placeholder="Descrivi segnalazione..." class="font-custom w-100"></textarea>
+            <textarea rows="13" cols="50" name="ticket" id="ticket" placeholder="Scrivi qui per acquistare il prodotto..." class="font-custom w-100"></textarea>
 
         </div>
         <div class="d-flex justify-content-center">
             <button class="btn btn-success fs-5">
                 <span class="font-custom">
-                    Invia ticket
+                    Invia
                 </span>
             </button>
         </div>

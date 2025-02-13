@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { authGuard } from './auth.guard';
+// import { authGuard } from './auth.guard';
 
 const routes: Routes = [
   {
     path:'',
-    redirectTo:'login',
+    redirectTo:'home',
     pathMatch:'full'
   },
   {
@@ -20,83 +20,88 @@ const routes: Routes = [
   {
     path:'home',
     loadChildren:() => import('./home/home.module').then(h => h.HomeModule),
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
-    path:'insertProduct',
+    path:'insert-product',
     loadChildren : () => import('./insert-product/insert-product.module').then(i => i.InsertProductModule),
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
     path:'products',
     loadChildren:() => import('./products/products.module').then(p => p.ProductsModule),
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
     path:'accessori',
     loadChildren:() => import('./accessori-page/accessori-page.module').then(a => a.AccessoriPageModule),
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
-    path:'playstationPage',
+    path:'playstation-page',
     loadChildren:() => import('./playstation-page/playstation-page.module').then(pl => pl.PlaystationPageModule),
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
-    path:'xboxPage',
+    path:'xbox-page',
     loadChildren:() => import('./xbox-page/xbox-page.module').then(x => x.XboxPageModule),
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
-    path:'NintendoPage',
+    path:'nintendo-page',
     loadChildren:() => import('./nintendo-page/nintendo-page.module').then(n => n.NintendoPageModule),
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
-    path:'detailProduct',
+    path:'detail-product',
     loadChildren:() => import('./detail-product/detail-product.module').then(d => d.DetailProductModule),
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
-    path:'cartShop',
+    path:'cart-shop',
     loadChildren:() => import('./cart-shop/cart-shop.module').then(c => c.CartShopModule),
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
     path:'maps',
     loadChildren:() => import('./maps/maps.module').then(m => m.MapsModule),
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
     path:'my-profile',
     loadChildren:() => import('./my-profile/my-profile.module').then(my => my.MyProfileModule),
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
     path:'settings',
     loadChildren:() => import('./settings/settings.module').then(s => s.SettingsModule),
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
     path:'ticket',
     loadChildren:() => import('./ticket/ticket.module').then(t => t.TicketModule),
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
     path:'users',
     loadChildren:() => import('./users/users.module').then(u => u.UsersModule),
-    canActivate:[authGuard],
+    // canActivate:[authGuard],
     data:{role:'superadmin'}
   },
   {
     path:'single-user',
     loadChildren:() => import('./single-user/single-user.module').then(si => si.SingleUserModule),
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
     path:'reset-password',
     loadChildren:() => import('./reset-password/reset-password.module').then(re => re.ResetPasswordModule),
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
+  },
+  {
+    path:'contact-us',
+    loadChildren:() => import('./contact-us/contact-us.module').then(contact => contact.ContactUsModule),
+    // canActivate:[authGuard]
   }
 ];
 

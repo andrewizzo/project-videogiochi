@@ -3,14 +3,14 @@
         <app-navbar></app-navbar>
     </div>
 
-    <div class="container-fluid p-0 w-75 d-flex flex-row">
-        <div class="mt-5 pt-5">
-            <a href="/home" class="fs-4 text-black">
+    <div class="container p-0 w-75 d-flex flex-row">
+        <div>
+            <a (click)="goHome()" class="fs-4 text-black cursorPointer">
                <img src="../../assets/left-arrow-black.png" alt="left-arrow-black">
                <!-- <span class="font-custom">Indietro</span> -->
            </a>
        </div>
-       <div class="mt-5 pt-5 w-100 d-flex justify-content-center align-items-center fs-1">
+       <div class="w-100 d-flex justify-content-center align-items-center fs-1">
            <span class="font-custom text-black">Dove Siamo</span>
        </div>
     </div>
@@ -34,4 +34,9 @@
             </div>
         </div>
     </div> 
+
+    <!-- Spinner di caricamento (mostrato quando isLoading è true) -->
+    <div *ngIf="isLoading" class="spinner-overlay">
+        <div class="spinner"></div>
+    </div>
 </div>

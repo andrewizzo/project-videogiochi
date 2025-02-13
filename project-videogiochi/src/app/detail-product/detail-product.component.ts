@@ -18,6 +18,8 @@ export class DetailProductComponent implements OnInit,OnDestroy{
   productCategory : string = "";
   productImage : string = "";
   productCondizione : string = "";
+  productDescription : string = "";
+  pageName : string = "";
 
   constructor(private productsService : ProductService,private router : Router){}
   ngOnDestroy(): void {
@@ -32,6 +34,7 @@ export class DetailProductComponent implements OnInit,OnDestroy{
     if (savedProduct) {
       this.product = JSON.parse(savedProduct)
       this.setSingleProduct(this.product)
+
     }else{
       const productId = this.productsService.getProductId()
 
@@ -51,6 +54,8 @@ export class DetailProductComponent implements OnInit,OnDestroy{
     this.productCategory = product.category;
     this.productImage = product.image;
     this.productCondizione = product.condizione
+    this.productDescription = product.description;
+    this.pageName = product.category
   }
 
   goBack(){
@@ -59,6 +64,10 @@ export class DetailProductComponent implements OnInit,OnDestroy{
     }else{
       this.router.navigate(['home'])
     }
+  }
+
+  goToContactUs(){
+    this.startLoading('contact-us')
   }
 
   startLoading(route: string){

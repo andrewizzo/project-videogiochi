@@ -15,17 +15,17 @@ export class DashboardComponent {
 
   goToPlaystationPage(){
     // this.router.navigate(['playstationPage'])
-    this.startLoading('playstationPage')
+    this.startLoading('playstation-page')
   }
 
   goToXboxPage(){
     // this.router.navigate(['xboxPage'])
-    this.startLoading('xboxPage')
+    this.startLoading('xbox-page')
   }
 
   goToNintendoPage(){
     // this.router.navigate(['NintendoPage'])
-    this.startLoading('NintendoPage')
+    this.startLoading('nintendo-page')
   }
 
   goToAccessoriPage(){

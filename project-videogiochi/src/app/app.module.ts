@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-delete-dialog.component';
 import { ConfirmAddDialogComponent } from './confirm-add-dialog/confirm-add-dialog.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 @NgModule({

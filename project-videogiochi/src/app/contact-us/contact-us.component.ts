@@ -1,19 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 
 @Component({
-  selector: 'app-reset-password',
-  templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.css']
+  selector: 'app-contact-us',
+  templateUrl: './contact-us.component.html',
+  styleUrls: ['./contact-us.component.css']
 })
-export class ResetPasswordComponent {
-  isLoading : boolean = false
-
+export class ContactUsComponent implements OnInit{
   constructor(private router : Router){}
 
-  goMyProfile(){
-    this.startLoading('my-profile')
+  oldRoute : string | null = '';
+  ngOnInit(): void {
+    this.oldRoute = sessionStorage.getItem('route')
+  }
+
+  isLoading : boolean = false;
+
+  goBack(){
+    if (this.oldRoute) {
+      this.startLoading(this.oldRoute)
+    }else{
+      this.router.navigate(['home'])
+    }
   }
 
   startLoading(route: string) {

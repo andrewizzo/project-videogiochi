@@ -87,6 +87,12 @@ export class NavbarComponent implements OnInit{
     }
   }
 
+  goToContactUs(){
+    if(this.router.url !== '/contact-us'){
+      this.startLoading('contact-us')
+    }
+  }
+
   goToMyProfile(){
     if(this.router.url !== '/my-profile'){
       this.startLoading('my-profile')
