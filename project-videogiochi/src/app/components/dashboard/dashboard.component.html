@@ -1,16 +1,16 @@
 <div>
     <div class="backGroundImage1 d-flex align-items-center">
-        <div class="container d-flex justify-content-evenly align-items-center h-50 flex-column gap-5 ">
+        <div class="container d-flex justify-content-evenly align-items-center flex-column gap-3 ">
             <div class="w-100 d-flex justify-content-center">
-                <span style="font-family: 'noisy';font-size: 12px;"
-                    class="text-white d-flex align-items-center p-4">PlayStation</span>
+                <span 
+                    class="text-white font-custom fs-1 d-flex align-items-center p-4">PlayStation</span>
             </div>
             <div>
-                <span style="font-family: 'noisy';font-size: 7.5vw;"
-                    class="text-danger d-flex align-items-center m-3">€200</span>
+                <span 
+                    class="text-danger d-flex align-items-center font-custom fs-1">€200</span>
             </div>
             <div>
-                <button class="btn btn-transparent bg-custom fs-4">
+                <button class="btn btn-transparent backgroud-gradient fs-4">
                     <span
                         class="text-white animated-underline d-flex align-items-center font-custom">
                         Vedi Prodotto
@@ -21,7 +21,7 @@
     </div>
     <div class="container-fluid p-0 " id="prodotti">
         <div class="container-fluid d-flex justify-content-center flex-column align-items-center p-5 gap-4">
-            <div class="rounded d-flex flex-column customHover w-75" (click)="goToPlaystationPage()">
+            <div class="glow-on-hover d-flex flex-column w-75" (click)="goToPlaystationPage()">
                 <button
                     class="border-0 bg-transparent d-flex gap-5 p-5 flex-column justify-content-center align-items-center">
                     <img src="../../../assets/Playstation_logo.svg.png" alt="">
@@ -32,7 +32,7 @@
                     </div>
                 </button>
             </div>
-            <div class="rounded d-flex flex-column customHover w-75" (click)="goToXboxPage()">
+            <div class="glow-on-hover d-flex flex-column w-75" (click)="goToXboxPage()">
                 <button
                     class="border-0 bg-transparent d-flex gap-5 p-5 flex-column justify-content-center align-items-center">
                     <img src="../../../assets/Xbox_one_logo.png" alt="">
@@ -43,7 +43,7 @@
                     </div>
                 </button>
             </div>
-            <div class="rounded d-flex flex-column w-75 customHover" (click)="goToNintendoPage()">
+            <div class="glow-on-hover d-flex flex-column w-75" (click)="goToNintendoPage()">
                 <button
                     class="border-0 w-100 p-5 bg-transparent d-flex gap-5 flex-column justify-content-center align-items-center">
                     <img src="../../../assets/640px-Nintendo_switch_logo 1.png" alt="">
@@ -54,7 +54,7 @@
                     </div>
                 </button>
             </div>
-            <div class="rounded d-flex flex-column w-75 rounded customHover" (click)="goToAccessoriPage()">
+            <div class="glow-on-hover d-flex flex-column w-75" (click)="goToAccessoriPage()">
                 <button
                     class="rounded border-0 w-100 p-5 bg-transparent d-flex gap-5 flex-column justify-content-center align-items-center">
                     <img src="../../../assets/joyAcc 1.png" class="d-flex justify-content-center align-items-center">
@@ -65,17 +65,17 @@
                     </div>
                 </button>
             </div>
-            <div class="rounded p-5 d-flex flex-column w-75 customHover" (click)="goToAllProducts()">
+            <div class="glow-on-hover d-flex flex-column w-75" (click)="goToAllProducts()">
                 <button
-                    class="border-0 bg-transparent d-flex gap-4 flex-column justify-content-center align-items-center">
-                    <img src="../../../assets/searchLogo.png" alt="">
+                    class="rounded border-0 w-100 p-5 bg-transparent d-flex gap-5 flex-column justify-content-center align-items-center">
+                    <img src="../../../assets/searchLogo.png" class="d-flex justify-content-center align-items-center">
                     <div class="d-flex justify-content-center align-items-center flex-column gap-2 fs-1">
                         <span class="text-dark h-100 d-flex align-items-center font-custom">
-                            Mostra
+                            Mostra tutto
                         </span>
-                        <span class="text-dark h-100 d-flex align-items-center font-custom">
+                        <!-- <span class="text-dark h-100 d-flex align-items-center font-custom">
                             tutto
-                        </span>
+                        </span> -->
                     </div>
                 </button>
             </div>
